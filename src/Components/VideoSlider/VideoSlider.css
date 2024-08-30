@@ -1,0 +1,18 @@
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .video {
+    object-fit: cover;
+  }
+  .carousel-caption h1{
+    font-size: 70px;
+    text-shadow:4px 4px 4px #000;
+  }
+  .carousel-caption span{
+    font-size: 95px;
+  }

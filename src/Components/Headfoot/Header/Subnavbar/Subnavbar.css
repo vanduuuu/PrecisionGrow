@@ -1,0 +1,168 @@
+/* General styles */
+.navbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0px;
+  }
+  h6{
+    margin: 0;
+  }
+  .navbar-nav .nav-link.active{
+    font-weight: 700;
+    color:#6e8320;
+  }
+  /* Logo inside the menu for mobile/tablet */
+  .menu-logo {
+    display: none; /* Hide by default */
+    max-width: 100%; /* Adjust size as needed */
+    margin: 20px auto; /* Center the logo with some margin */
+  }
+  .navbar-nav .nav-item{
+    font-size:20px;
+    font-weight: 500;
+  }
+  .nav-item .btn1{
+    background-color: green;
+    border-radius: 8px;
+    border: 0;
+    color: white;
+    padding: 4px 6px;
+    transition: all .5s linear;
+}
+.nav-item .btn1:hover{
+background-color: #6e8320;
+}
+  /* Toggler Button for mobile/tablet */
+  .navbar-toggler {
+    z-index: 2; /* Ensure the button is above the menu */
+    display: block; /* Show toggler by default */
+  }
+  
+  /* Menu Content Styles for mobile/tablet */
+  .menu-content {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 75%; /* Adjust as needed */
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 3; /* Ensure the menu is above the overlay */
+    display: none;
+  }
+  
+  .menu-content.show {
+    transform: translateX(0);
+    display: block;
+  }
+  
+  /* Close Button Styles */
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #00000021;
+    color: #6e8320;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    cursor: pointer;
+    z-index: 4;
+    border: 1px solid #6e8320;
+  }
+  .navbar-toggler{
+    color:#6e8320
+  }
+  .close-btn:hover {
+    background-color: #fff;
+    color: #000;
+  }
+  
+  /* Overlay Styles */
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000c9;
+    display: none;
+    z-index: 2; /* Ensure the overlay is below the menu but above other content */
+  }
+  
+  .menu-overlay.show {
+    display: block;
+  }
+  
+  /* Menu for larger screens */
+  @media (min-width: 992px) {
+    .navbar-toggler {
+      display: none; /* Hide toggler on larger screens */
+    }
+   
+    .collapse {
+      display: flex !important;
+      justify-content: flex-end;
+    }
+  
+    .menu-content {
+      position: static;
+      display: flex;
+      flex-direction: row;
+      width: auto;
+      height: auto;
+      background-color: transparent;
+      box-shadow: none;
+      transform: none;
+      align-items: center;
+    }
+  
+    .menu-overlay {
+      display: none;
+    }
+  
+    .navbar-nav {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    }
+  
+    .navbar-nav .nav-item {
+      margin-left: 20px; /* Space between menu items */
+    }
+  
+    .close-btn {
+      display: none; /* Hide the close button on larger screens */
+    }
+  
+    .menu-logo {
+      display: none; /* Hide logo on larger screens */
+    }
+  }
+  
+  @media (max-width: 991px) {
+    .menu-logo {
+      display: block; /* Show logo on mobile and tablet */
+    }
+    .navbar-nav{
+        text-align: start;
+        width: 79%;
+        margin: auto;
+    }
+    .nav-item .btn1{
+        margin-bottom: 20px;
+    }
+    .navbar-nav .nav-item {
+        font-size: 16px;
+        border-bottom: 1px solid #80808040;}
+
+  }
+  

@@ -22,13 +22,11 @@ const VideoSlider = () => {
       videoSrc: vdo1,
       title: 'Revolutionize Your Fishing With',
       title1: 'Precision Grow',
-
       description: '(A Unit Of Tech Visit Pvt Ltd)',
       styles:{
         titleColor: "#61cef5",
       }
     },
-    
   ];
 
   return (
@@ -49,8 +47,9 @@ const VideoSlider = () => {
       <div className="carousel-inner">
         {carouselItems.map((item, index) => (
           <div key={item.id} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-            <video className="d-block w-100 video" autoPlay loop muted>
+            <video className="d-block w-100 video" controls>
               <source src={item.videoSrc} type="video/mp4" />
+              Your browser does not support the video tag.
             </video>
             <div className="carousel-caption">
               <div className="text-center">
@@ -60,7 +59,7 @@ const VideoSlider = () => {
                     {item.title1}
                   </span>
                 </h1>
-                <h2 style={{ color: item.styles.titleColor }}>{item.description}</h2>
+                <h2 className="compname" style={{ color: item.styles.titleColor }}>{item.description}</h2>
               </div>
             </div>
           </div>

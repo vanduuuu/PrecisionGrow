@@ -6,7 +6,7 @@ const Topbar = () => {
   return (
    <>
    <div className='marquee-bar'>
-   <marquee behavior="alternate" scrollamount="3"><h5>World's First Toll Free No. For <span className="orange">eCROP</span> - <span class="o-no">18002688989</span></h5></marquee>
+   <marquee behavior="alternate" scrollamount="3"><h5 className='text-white'>World's First Toll Free No. For <span className="orange">eCROP</span> - <span class="o-no">18002688989</span></h5></marquee>
    </div>
     <div className="top-bar-area text-light">
       <div className="container-fluid">

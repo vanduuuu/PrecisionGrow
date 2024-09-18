@@ -5,7 +5,8 @@ import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import './Subnavbar.css';
 import logo from '../../../../Assets/logo.webp';
 import Topbar from '../Topbar/Topbar';
-import sdgindia from "../../../../Assets/sdg-india.png"
+import sdgindia from "../../../../Assets/sdg-india.png";
+
 const Subnavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -13,11 +14,21 @@ const Subnavbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleDropdownClick = (e) => {
+    e.stopPropagation(); // Prevent event from bubbling up to the menu toggler
+  };
+
+  const handleMenuClick = () => {
+    if (window.innerWidth < 992) {
+      setIsMenuOpen(false);
+    }
+  };
+
   return (
     <div>
       <Topbar />
-      <div className="nav-outer">
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <div className="nav-outer sticky-top">
+        <nav className="navbar navbar-expand-lg sticky-top bg-body-tertiary">
           <div className="container-fluid">
             {/* Logo Section */}
             <NavLink className="navbar-brand me-auto desktop-logo" to="/">
@@ -36,7 +47,7 @@ const Subnavbar = () => {
             </button>
             
             {/* Menu Section */}
-            <div className={`menu-content ${isMenuOpen ? 'show' : ''}`}>
+            <div className={`menu-content ${isMenuOpen ? 'show' : ''}`} onClick={handleMenuClick}>
               {/* Logo inside menu for mobile/tablet */}
               <img src={logo} alt="logo" className="menu-logo" />
 
@@ -67,21 +78,26 @@ const Subnavbar = () => {
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/faq" activeClassName="active">FAQ</NavLink>
                 </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link" to="/policy" activeClassName="active">Policy</NavLink>
+                {/* Policy Dropdown Menu */}
+                <li className="nav-item dropdown" onClick={handleDropdownClick}>
+                  <NavLink className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded={isMenuOpen ? "true" : "false"} onClick={() => setIsMenuOpen(true)}>
+                    Policy
+                  </NavLink>
+                  <ul className="dropdown-menu">
+                    <li><NavLink className="dropdown-item" to="/privacy-policy" onClick={handleMenuClick}>Privacy Policy</NavLink></li>
+                    <li><NavLink className="dropdown-item" to="/terms-of-service" onClick={handleMenuClick}>Terms of Service</NavLink></li>
+                    {/* Add more items as needed */}
+                  </ul>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/contact" activeClassName="active">Contact</NavLink>
-                </li>
-                <li className="nav-item">
-                <NavLink to="http://ecroptoday.co.in/" target="_blank">
+                  <NavLink to="http://ecroptoday.co.in/" target="_blank">
                     <button className='btn1'><h6>E-CROPTODAY</h6></button>
-                </NavLink>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                <NavLink to="http://ecroptoday.co.in/" target="_blank">
+                  <NavLink to="http://ecroptoday.co.in/" target="_blank">
                     <img src={sdgindia} alt="sdg-india"></img>
-                </NavLink>
+                  </NavLink>
                 </li>
               </ul>
             </div>
